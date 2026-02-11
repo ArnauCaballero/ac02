@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  openldap:
+    image: osixia/openldap:latest
+    container_name: openldap
+    environment: 
+      LDAP_ORGANISATION: "TecnoSolutions"
+      LDAP_DOMAIN: "tecnosolutions.lan"
+      LDAP_ADMIN_PASSWORD: "admin"
+    ports:
+      - "389:389"
+      - "636:636"
+    volumes:
+      - openldap_data:/var/lib/ldap
+      - openldap_config:/etc/ldap/slapd.d
+      - ./init.ldif:/container/service/slapd/assets/test/new-user.ldif
+      - ./alta_massiva.sh:/tmp/alta_massiva.sh
+    restart: unless-stopped
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: openldap
+      PHPLDAPADMIN_HTTPS: "false"
+    ports:
+      - "8080:80"
+    depends_on:
+      - openldap
+    restart: unless-stopped
+
+  web:
+    image: httpd:latest
+    container_name: apache_server
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/usr/local/apache2/htdocs/
+    restart: unless-stopped
+
+volumes:
+  openldap_data:
+  openldap_config:

@@ -1,0 +1,19 @@
+# Base del domini
+dn: dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: TecnoSolutions LAN
+dc: tecnosolutions
+
+# Unitat organitzativa d’usuaris
+dn: ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: organizationalUnit
+ou: usuaris
+
+# Unitat organitzativa de grups
+dn: ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: organizationalUnit
+ou: grups
