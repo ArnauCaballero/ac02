@@ -1,6 +1,7 @@
 #!/bin/bash
 base_dn="dc=tecnosolutions,dc=lan"
 admin_dn="cn=admin,dc=tecnosolutions,dc=lan"
+server_ldap="ldap://localhost:389"
 fitxer_csv=""
 while getopts "r:" opt; do
   case $opt in
@@ -56,7 +57,7 @@ done < "dades_normalitzades.csv"
 
 if [ -s "grups.ldif" ]; then
     echo "Afegint els grups a LDAP..."
-    ldapadd -x -H ldap://192.168.17.95 -D "$admin_dn" -w "admin" -f ./grups.ldif
+    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f ./grups.ldif
 else
     echo "No s'han trobat grups nous per afegir."
 fi
@@ -114,7 +115,7 @@ done < "dades_normalitzades.csv"
 
 if [ -s "usuaris.ldif" ]; then
     echo "Afegint usuaris i membres a LDAP..."
-    ldapadd -x -H ldap://192.168.17.95 -D "$admin_dn" -w "admin" -f usuaris.ldif
+    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f usuaris.ldif
 else
     echo "No s'han trobat usuaris per afegir."
 fi
