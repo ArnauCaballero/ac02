@@ -57,7 +57,7 @@ done < "dades_normalitzades.csv"
 
 if [ -s "grups.ldif" ]; then
     echo "Afegint els grups a LDAP..."
-    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f ./grups.ldif
+    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f ./grups.ldif > ./log.log 2>&1
 else
     echo "No s'han trobat grups nous per afegir."
 fi
@@ -115,7 +115,7 @@ done < "dades_normalitzades.csv"
 
 if [ -s "usuaris.ldif" ]; then
     echo "Afegint usuaris i membres a LDAP..."
-    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f usuaris.ldif
+    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f usuaris.ldif > ./log.log 2>&1
 else
     echo "No s'han trobat usuaris per afegir."
 fi
