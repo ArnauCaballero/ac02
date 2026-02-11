@@ -29,6 +29,7 @@ function normalitzar_text {
 normalitzar_text "$fitxer_csv" > "dades_normalitzades.csv"
 sed -i '1d' "dades_normalitzades.csv"
 echo dades_normalitzades a fitxer dades_normalitzades.csv
+echo dades_normalitzades a fitxer dades_normalitzades.csv > log.log 2>&1
 > grups.ldif
 declare -A tipus_vistos
 gid_counter=20000
@@ -38,6 +39,7 @@ while IFS=',' read -r campo1 campo2 campo3 campo4; do
         # Comprovar si el grup existeix a LDAP
         if ldapsearch -x -H "$server_ldap" -b "ou=grups,$base_dn" "cn=$campo3" | grep -q "^dn:"; then
             echo "El grup $campo3 ja existeix a LDAP. No s'afegeix."
+            echo "El grup $campo3 ja existeix a LDAP. No s'afegeix." >> log.log 2>&1
         else
             cat <<EOF >> grups.ldif
 dn: cn=$campo3,ou=grups,$base_dn
@@ -49,6 +51,7 @@ description: Grup $campo3
 
 EOF
             echo "S'ha creat el grup $campo3 a grups.ldif"
+            echo "S'ha creat el grup $campo3 a grups.ldif" >> log.log 2>&1
             ((gid_counter++))
         fi
         tipus_vistos[$campo3]=1
@@ -57,9 +60,11 @@ done < "dades_normalitzades.csv"
 
 if [ -s "grups.ldif" ]; then
     echo "Afegint els grups a LDAP..."
-    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f ./grups.ldif > ./log.log 2>&1
+    echo "Afegint els grups a LDAP..." >> log.log 2>&1
+    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f ./grups.ldif >> log.log 2>&1
 else
     echo "No s'han trobat grups nous per afegir."
+    echo "No s'han trobat grups nous per afegir." >> log.log 2>&1
 fi
 
 > usuaris.ldif
@@ -115,7 +120,9 @@ done < "dades_normalitzades.csv"
 
 if [ -s "usuaris.ldif" ]; then
     echo "Afegint usuaris i membres a LDAP..."
-    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f usuaris.ldif > ./log.log 2>&1
+    echo "Afegint usuaris i membres a LDAP..." >> log.log 2>&1
+    ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f usuaris.ldif >> log.log 2>&1
 else
     echo "No s'han trobat usuaris per afegir."
+    echo "No s'han trobat usuaris per afegir." >> log.log 2>&1
 fi
