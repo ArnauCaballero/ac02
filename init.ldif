@@ -1,10 +1,10 @@
 # Base del domini
-dn: dc=tecnosolutions,dc=lan
-objectClass: top
-objectClass: dcObject
-objectClass: organization
-o: TecnoSolutions LAN
-dc: tecnosolutions
+#dn: dc=tecnosolutions,dc=lan
+#objectClass: top
+#objectClass: dcObject
+#objectClass: organization
+#o: TecnoSolutions LAN
+#dc: tecnosolutions
 
 # Unitat organitzativa d’usuaris
 dn: ou=usuaris,dc=tecnosolutions,dc=lan
