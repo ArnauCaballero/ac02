@@ -28,7 +28,7 @@ function normalitzar_text {
 # normalitzar_text "dades.csv" > "dades_normalitzades.csv"
 normalitzar_text "$fitxer_csv" > "dades_normalitzades.csv"
 sed -i '1d' "dades_normalitzades.csv"
-
+echo dades_normalitzades a fitxer dades_normalitzades.csv
 > grups.ldif
 declare -A tipus_vistos
 gid_counter=20000
