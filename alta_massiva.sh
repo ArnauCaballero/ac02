@@ -52,6 +52,8 @@ description: Grup $campo3
 EOF
             echo "S'ha creat el grup $campo3 a grups.ldif"
             echo "S'ha creat el grup $campo3 a grups.ldif" >> log.log 2>&1
+            echo "S'ha creat la carpeta /home/users/$campo3" >> log.log 2>&1
+            mkdir -p "/home/users/$campo3"
             ((gid_counter++))
         fi
         tipus_vistos[$campo3]=1
@@ -99,7 +101,7 @@ sn: $campo2
 uid: $nom_usuari
 uidNumber: $uid_counter
 gidNumber: $uid_counter
-homeDirectory: /home/$nom_usuari
+homeDirectory: /home/users/$campo3/$nom_usuari
 loginShell: /bin/bash
 userPassword: {SSHA}password
 
@@ -113,7 +115,14 @@ add: memberUid
 memberUid: $nom_usuari
 
 EOF
-
+    mkdir -p "/home/users/$campo3/$nom_usuari"
+    echo "S'ha creat la carpeta /home/users/$campo3/$nom_usuari" >> log.log 2>&1
+    chmod 700 "/home/users/$campo3/$nom_usuari"
+    echo "S'han assignat permisos 700 al directori /home/users/$campo3/$nom_usuari" >> log.log 2>&1
+    echo "Benvingut $nom_usuari al grup $campo3!" >> /home/users/$campo3/$nom_usuari/benvinguda.txt
+    echo "S'ha creat el fitxer de benvinguda per $nom_usuari al directori /home/users/$campo3/$nom_usuari/benvinguda.txt" >> log.log 2>&1
+    chown "$nom_usuari:$nom_usuari" "/home/users/$campo3/$nom_usuari"
+    echo "S'ha assignat propietari $nom_usuari al directori /home/users/$campo3/$nom_usuari" >> log.log 2>&1
     ((uid_counter++))
     ((gid_counter++))
 done < "dades_normalitzades.csv"
