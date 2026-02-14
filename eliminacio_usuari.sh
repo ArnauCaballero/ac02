@@ -34,7 +34,9 @@ while IFS=',' read -r campo1 campo2; do
     # Generar UID: primera lletra de campo1 + tot campo2
     first_char_campo1="${campo1:0:1}"
     nom_usuari="${first_char_campo1}${campo2}"
-    if ldapsearch -x -H "$server_ldap" -b "ou=usuari,$base_dn" "cn=$nom_usuari" | grep -q "^dn:"; then
+    if ldapsearch -x -H "$server_ldap" -b "ou=usuaris,$base_dn" "uid=$nom_usuari" | grep -q "^uid:"; then
         echo "El usuari $nom_usuari existeix a LDAP"
     else
         echo "El usuari $nom_usuari no existeix a LDAP"
+    fi
+done < d"ades_normalitzades.csv"
