@@ -37,7 +37,7 @@ gid_counter=20000
 while IFS=',' read -r campo1 campo2 campo3 campo4; do
     if [[ -z "${tipus_vistos[$campo3]}" ]]; then
         # Comprovar si el grup existeix a LDAP
-        if ldapsearch -x -H "$server_ldap" -b "ou=grups,$base_dn" "cn=$campo3" | grep -q "^dn:"; then
+        if ldapsearch -x -H "$server_ldap" -D "cn=admin,dc=tecnosolutions,dc=lan" -w admin -LLL -b "ou=grups,$base_dn" "cn=$campo3" | grep -q "^dn:"; then
             echo "El grup $campo3 ja existeix a LDAP. No s'afegeix."
             echo "El grup $campo3 ja existeix a LDAP. No s'afegeix." >> log.log 2>&1
         else

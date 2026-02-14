@@ -34,8 +34,11 @@ while IFS=',' read -r campo1 campo2; do
     # Generar UID: primera lletra de campo1 + tot campo2
     first_char_campo1="${campo1:0:1}"
     nom_usuari="${first_char_campo1}${campo2}"
-    if ldapsearch -x -H "$server_ldap" -b "ou=usuaris,$base_dn" "uid=$nom_usuari" | grep -q "^uid:"; then
+    if ldapsearch -x -H "$server_ldap" -D "$admin_dn" -w admin -LLL -b "$base_dn" "uid=$nom_usuari" | grep -q "^dn:"; then
         echo "El usuari $nom_usuari existeix a LDAP"
+        ldapdelete -x -H "$server_ldap" -D "$admin_dn" -w admin "uid=$nom_usuari,ou=usuaris,$base_dn"
+        ldapdelete -x -H "$server_ldap" -D "$admin_dn" -w admin "cn=$nom_usuari,ou=grups,$base_dn" 
+
     else
         echo "El usuari $nom_usuari no existeix a LDAP"
     fi
