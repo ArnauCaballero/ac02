@@ -37,7 +37,12 @@ while IFS=',' read -r campo1 campo2; do
     if ldapsearch -x -H "$server_ldap" -D "$admin_dn" -w admin -LLL -b "$base_dn" "uid=$nom_usuari" | grep -q "^dn:"; then
         echo "El usuari $nom_usuari existeix a LDAP"
         ldapdelete -x -H "$server_ldap" -D "$admin_dn" -w admin "uid=$nom_usuari,ou=usuaris,$base_dn"
+        echo "El usuari $nom_usuari ha sigut eliminat del LDAP"
+        echo "El usuari $nom_usuari ha sigut eliminat del LDAP" >> log.log 2>&1
         ldapdelete -x -H "$server_ldap" -D "$admin_dn" -w admin "cn=$nom_usuari,ou=grups,$base_dn" 
+        echo "El grup $nom_usuari ha sigut eliminat del LDAP"
+        echo "El grup $nom_usuari ha sigut eliminat del LDAP" >> log.log 2>&1
+
 
     else
         echo "El usuari $nom_usuari no existeix a LDAP"
