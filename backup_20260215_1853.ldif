@@ -1,0 +1,393 @@
+dn: dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: TecnoSolutions
+dc: tecnosolutions
+
+dn: ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: organizationalUnit
+ou: grups
+
+dn: ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: organizationalUnit
+ou: usuaris
+
+dn: cn=ppi,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: ppi
+gidNumber: 10011
+description: Grup privat de ppi
+
+dn: cn=jmas,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: jmas
+gidNumber: 10008
+description: Grup privat de jmas
+
+dn: cn=jros,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: jros
+gidNumber: 10017
+description: Grup privat de jros
+
+dn: cn=rrhh,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: rrhh
+gidNumber: 20002
+description: Grup rrhh
+memberUid: jvila
+memberUid: sleon
+memberUid: rmola
+
+dn: cn=csimo,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: csimo
+gidNumber: 10014
+description: Grup privat de csimo
+
+dn: cn=epuig,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: epuig
+gidNumber: 10007
+description: Grup privat de epuig
+
+dn: cn=mprat,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: mprat
+gidNumber: 10013
+description: Grup privat de mprat
+
+dn: cn=rmola,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: rmola
+gidNumber: 10016
+description: Grup privat de rmola
+
+dn: cn=sbosc,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: sbosc
+gidNumber: 10018
+description: Grup privat de sbosc
+
+dn: cn=sleon,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: sleon
+gidNumber: 10009
+description: Grup privat de sleon
+
+dn: cn=jcasas,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: jcasas
+gidNumber: 10006
+description: Grup privat de jcasas
+
+dn: cn=lroura,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: lroura
+gidNumber: 10012
+description: Grup privat de lroura
+
+dn: cn=pribas,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: pribas
+gidNumber: 10004
+description: Grup privat de pribas
+
+dn: cn=pvalls,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: pvalls
+gidNumber: 10015
+description: Grup privat de pvalls
+
+dn: cn=vendes,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: vendes
+gidNumber: 20001
+description: Grup vendes
+memberUid: mtorra
+memberUid: jcasas
+memberUid: ppi
+memberUid: pvalls
+
+dn: cn=adurany,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: adurany
+gidNumber: 10005
+description: Grup privat de adurany
+
+dn: cn=direccio,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: direccio
+gidNumber: 20003
+description: Grup direccio
+memberUid: msants
+memberUid: jmas
+memberUid: sbosc
+
+dn: cn=kcostner,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: kcostner
+gidNumber: 10010
+description: Grup privat de kcostner
+
+dn: cn=sistemes,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: sistemes
+gidNumber: 20000
+description: Grup sistemes
+memberUid: lgarcia
+memberUid: pribas
+memberUid: kcostner
+memberUid: csimo
+
+dn: cn=marketing,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: marketing
+gidNumber: 20004
+description: Grup marketing
+memberUid: adurany
+memberUid: lroura
+memberUid: jros
+
+dn: cn=comptabilitat,ou=grups,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: posixGroup
+cn: comptabilitat
+gidNumber: 20005
+description: Grup comptabilitat
+memberUid: epuig
+memberUid: mprat
+
+dn: uid=ppi,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: ppi
+sn: pi
+uid: ppi
+uidNumber: 10011
+gidNumber: 10011
+homeDirectory: /home/users/vendes/ppi
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=jmas,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: jmas
+sn: mas
+uid: jmas
+uidNumber: 10008
+gidNumber: 10008
+homeDirectory: /home/users/direccio/jmas
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=jros,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: jros
+sn: ros
+uid: jros
+uidNumber: 10017
+gidNumber: 10017
+homeDirectory: /home/users/marketing/jros
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=csimo,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: csimo
+sn: simo
+uid: csimo
+uidNumber: 10014
+gidNumber: 10014
+homeDirectory: /home/users/sistemes/csimo
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=epuig,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: epuig
+sn: puig
+uid: epuig
+uidNumber: 10007
+gidNumber: 10007
+homeDirectory: /home/users/comptabilitat/epuig
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=mprat,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: mprat
+sn: prat
+uid: mprat
+uidNumber: 10013
+gidNumber: 10013
+homeDirectory: /home/users/comptabilitat/mprat
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=rmola,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: rmola
+sn: mola
+uid: rmola
+uidNumber: 10016
+gidNumber: 10016
+homeDirectory: /home/users/rrhh/rmola
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=sbosc,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: sbosc
+sn: bosc
+uid: sbosc
+uidNumber: 10018
+gidNumber: 10018
+homeDirectory: /home/users/direccio/sbosc
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=sleon,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: sleon
+sn: leon
+uid: sleon
+uidNumber: 10009
+gidNumber: 10009
+homeDirectory: /home/users/rrhh/sleon
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=jcasas,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: jcasas
+sn: casas
+uid: jcasas
+uidNumber: 10006
+gidNumber: 10006
+homeDirectory: /home/users/vendes/jcasas
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=lroura,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: lroura
+sn: roura
+uid: lroura
+uidNumber: 10012
+gidNumber: 10012
+homeDirectory: /home/users/marketing/lroura
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=pribas,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: pribas
+sn: ribas
+uid: pribas
+uidNumber: 10004
+gidNumber: 10004
+homeDirectory: /home/users/sistemes/pribas
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=pvalls,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: pvalls
+sn: valls
+uid: pvalls
+uidNumber: 10015
+gidNumber: 10015
+homeDirectory: /home/users/vendes/pvalls
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=adurany,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: adurany
+sn: durany
+uid: adurany
+uidNumber: 10005
+gidNumber: 10005
+homeDirectory: /home/users/marketing/adurany
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+
+dn: uid=kcostner,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: person
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: kcostner
+sn: costner
+uid: kcostner
+uidNumber: 10010
+gidNumber: 10010
+homeDirectory: /home/users/sistemes/kcostner
+loginShell: /bin/bash
+userPassword:: e1NTSEF9cGFzc3dvcmQ=
+

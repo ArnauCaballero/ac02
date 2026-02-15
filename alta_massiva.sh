@@ -121,8 +121,6 @@ EOF
     echo "S'han assignat permisos 700 al directori /home/users/$campo3/$nom_usuari" >> log.log 2>&1
     echo "Benvingut $nom_usuari al grup $campo3!" >> /home/users/$campo3/$nom_usuari/benvinguda.txt
     echo "S'ha creat el fitxer de benvinguda per $nom_usuari al directori /home/users/$campo3/$nom_usuari/benvinguda.txt" >> log.log 2>&1
-    chown "$nom_usuari:$nom_usuari" "/home/users/$campo3/$nom_usuari"
-    echo "S'ha assignat propietari $nom_usuari al directori /home/users/$campo3/$nom_usuari" >> log.log 2>&1
     ((uid_counter++))
     ((gid_counter++))
 done < "dades_normalitzades.csv"
@@ -131,6 +129,8 @@ if [ -s "usuaris.ldif" ]; then
     echo "Afegint usuaris i membres a LDAP..."
     echo "Afegint usuaris i membres a LDAP..." >> log.log 2>&1
     ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f usuaris.ldif >> log.log 2>&1
+    chown "$nom_usuari:$nom_usuari" "/home/users/$campo3/$nom_usuari"
+    #echo "S'ha assignat propietari $nom_usuari al directori /home/users/$campo3/$nom_usuari" >> log.log 2>&1
 else
     echo "No s'han trobat usuaris per afegir."
     echo "No s'han trobat usuaris per afegir." >> log.log 2>&1
