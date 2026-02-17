@@ -30,13 +30,13 @@ normalitzar_text "$fitxer_csv" > "dades_normalitzades.csv"
 sed -i '1d' "dades_normalitzades.csv"
 echo dades_normalitzades a fitxer dades_normalitzades.csv
 echo dades_normalitzades a fitxer dades_normalitzades.csv > log.log 2>&1
-while IFS=',' read -r campo1 campo2; do
+while IFS=',' read -r campo1 campo2 campo3; do
     # Generar UID: primera lletra de campo1 + tot campo2
     first_char_campo1="${campo1:0:1}"
     nom_usuari="${first_char_campo1}${campo2}"
     if ldapsearch -x -H "$server_ldap" -D "$admin_dn" -w admin -LLL -b "$base_dn" "uid=$nom_usuari" | grep -q "^dn:"; then
         echo "El usuari $nom_usuari existeix a LDAP"
-        ldapdelete -x -H "$server_ldap" -D "$admin_dn" -w admin "uid=$nom_usuari,ou=usuaris,$base_dn"
+        ldapdelete -x -H "$server_ldap" -D "$admin_dn" -w admin "uid=$nom_usuari,ou=$campo3,ou=usuaris,$base_dn"
         echo "El usuari $nom_usuari ha sigut eliminat del LDAP"
         echo "El usuari $nom_usuari ha sigut eliminat del LDAP" >> log.log 2>&1
         ldapdelete -x -H "$server_ldap" -D "$admin_dn" -w admin "cn=$nom_usuari,ou=grups,$base_dn" 
@@ -47,4 +47,4 @@ while IFS=',' read -r campo1 campo2; do
     else
         echo "El usuari $nom_usuari no existeix a LDAP"
     fi
-done < d"ades_normalitzades.csv"
+done < "dades_normalitzades.csv"

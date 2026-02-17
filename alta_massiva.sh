@@ -49,6 +49,13 @@ cn: $campo3
 gidNumber: $gid_counter
 description: Grup $campo3
 
+
+# Unitat organitzativa d’usuaris
+dn: ou=$campo3,ou=usuaris,dc=tecnosolutions,dc=lan
+objectClass: top
+objectClass: organizationalUnit
+ou: $campo3
+
 EOF
             echo "S'ha creat el grup $campo3 a grups.ldif"
             echo "S'ha creat el grup $campo3 a grups.ldif" >> log.log 2>&1
@@ -85,13 +92,12 @@ objectClass: posixGroup
 cn: $nom_usuari
 gidNumber: $uid_counter
 description: Grup privat de $nom_usuari
-
 EOF
 
     # 2. Usuari
     # El gidNumber és el del seu grup privat ($gid_counter)
     cat <<EOF >> usuaris.ldif
-dn: uid=$nom_usuari,ou=usuaris,$base_dn
+dn: uid=$nom_usuari,ou=$campo3,ou=usuaris,$base_dn
 objectClass: top
 objectClass: person
 objectClass: posixAccount
