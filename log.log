@@ -1,3 +1,71 @@
 dades_normalitzades a fitxer dades_normalitzades.csv
-El usuari lgarcia ha sigut eliminat del LDAP
-El grup lgarcia ha sigut eliminat del LDAP
+El grup sistemes ja existeix a LDAP. No s'afegeix.
+El grup vendes ja existeix a LDAP. No s'afegeix.
+El grup rrhh ja existeix a LDAP. No s'afegeix.
+El grup direccio ja existeix a LDAP. No s'afegeix.
+El grup marketing ja existeix a LDAP. No s'afegeix.
+El grup comptabilitat ja existeix a LDAP. No s'afegeix.
+No s'han trobat grups nous per afegir.
+S'ha creat la carpeta /home/users/sistemes/lgarcia
+S'han assignat permisos 700 al directori /home/users/sistemes/lgarcia
+S'ha creat el fitxer de benvinguda per lgarcia al directori /home/users/sistemes/lgarcia/benvinguda.txt
+S'ha creat la carpeta /home/users/vendes/mtorra
+S'han assignat permisos 700 al directori /home/users/vendes/mtorra
+S'ha creat el fitxer de benvinguda per mtorra al directori /home/users/vendes/mtorra/benvinguda.txt
+S'ha creat la carpeta /home/users/rrhh/jvila
+S'han assignat permisos 700 al directori /home/users/rrhh/jvila
+S'ha creat el fitxer de benvinguda per jvila al directori /home/users/rrhh/jvila/benvinguda.txt
+S'ha creat la carpeta /home/users/direccio/msants
+S'han assignat permisos 700 al directori /home/users/direccio/msants
+S'ha creat el fitxer de benvinguda per msants al directori /home/users/direccio/msants/benvinguda.txt
+S'ha creat la carpeta /home/users/sistemes/pribas
+S'han assignat permisos 700 al directori /home/users/sistemes/pribas
+S'ha creat el fitxer de benvinguda per pribas al directori /home/users/sistemes/pribas/benvinguda.txt
+S'ha creat la carpeta /home/users/marketing/adurany
+S'han assignat permisos 700 al directori /home/users/marketing/adurany
+S'ha creat el fitxer de benvinguda per adurany al directori /home/users/marketing/adurany/benvinguda.txt
+S'ha creat la carpeta /home/users/vendes/jcasas
+S'han assignat permisos 700 al directori /home/users/vendes/jcasas
+S'ha creat el fitxer de benvinguda per jcasas al directori /home/users/vendes/jcasas/benvinguda.txt
+S'ha creat la carpeta /home/users/comptabilitat/epuig
+S'han assignat permisos 700 al directori /home/users/comptabilitat/epuig
+S'ha creat el fitxer de benvinguda per epuig al directori /home/users/comptabilitat/epuig/benvinguda.txt
+S'ha creat la carpeta /home/users/direccio/jmas
+S'han assignat permisos 700 al directori /home/users/direccio/jmas
+S'ha creat el fitxer de benvinguda per jmas al directori /home/users/direccio/jmas/benvinguda.txt
+S'ha creat la carpeta /home/users/rrhh/sleon
+S'han assignat permisos 700 al directori /home/users/rrhh/sleon
+S'ha creat el fitxer de benvinguda per sleon al directori /home/users/rrhh/sleon/benvinguda.txt
+S'ha creat la carpeta /home/users/sistemes/kcostner
+S'han assignat permisos 700 al directori /home/users/sistemes/kcostner
+S'ha creat el fitxer de benvinguda per kcostner al directori /home/users/sistemes/kcostner/benvinguda.txt
+S'ha creat la carpeta /home/users/vendes/ppi
+S'han assignat permisos 700 al directori /home/users/vendes/ppi
+S'ha creat el fitxer de benvinguda per ppi al directori /home/users/vendes/ppi/benvinguda.txt
+S'ha creat la carpeta /home/users/marketing/lroura
+S'han assignat permisos 700 al directori /home/users/marketing/lroura
+S'ha creat el fitxer de benvinguda per lroura al directori /home/users/marketing/lroura/benvinguda.txt
+S'ha creat la carpeta /home/users/comptabilitat/mprat
+S'han assignat permisos 700 al directori /home/users/comptabilitat/mprat
+S'ha creat el fitxer de benvinguda per mprat al directori /home/users/comptabilitat/mprat/benvinguda.txt
+S'ha creat la carpeta /home/users/sistemes/csimo
+S'han assignat permisos 700 al directori /home/users/sistemes/csimo
+S'ha creat el fitxer de benvinguda per csimo al directori /home/users/sistemes/csimo/benvinguda.txt
+S'ha creat la carpeta /home/users/vendes/pvalls
+S'han assignat permisos 700 al directori /home/users/vendes/pvalls
+S'ha creat el fitxer de benvinguda per pvalls al directori /home/users/vendes/pvalls/benvinguda.txt
+S'ha creat la carpeta /home/users/rrhh/rmola
+S'han assignat permisos 700 al directori /home/users/rrhh/rmola
+S'ha creat el fitxer de benvinguda per rmola al directori /home/users/rrhh/rmola/benvinguda.txt
+S'ha creat la carpeta /home/users/marketing/jros
+S'han assignat permisos 700 al directori /home/users/marketing/jros
+S'ha creat el fitxer de benvinguda per jros al directori /home/users/marketing/jros/benvinguda.txt
+S'ha creat la carpeta /home/users/direccio/sbosc
+S'han assignat permisos 700 al directori /home/users/direccio/sbosc
+S'ha creat el fitxer de benvinguda per sbosc al directori /home/users/direccio/sbosc/benvinguda.txt
+Afegint usuaris i membres a LDAP...
+ldapadd: attributeDescription "dn": (possible missing newline after line 12, entry "cn=lgarcia,ou=grups,dc=tecnosolutions,dc=lan"?)
+ldap_add: Type or value exists (20)
+	additional info: objectClass: value #0 provided more than once
+adding new entry "cn=lgarcia,ou=grups,dc=tecnosolutions,dc=lan"
+

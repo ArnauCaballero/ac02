@@ -39,6 +39,16 @@ services:
       - ./www:/usr/local/apache2/htdocs/
     restart: unless-stopped
 
+  minio:
+      image: minio/minio
+      container_name: minio-server
+      command: server /data --console-address ":9001"
+      environment:
+        MINIO_ROOT_USER: admin           # Access Key
+        MINIO_ROOT_PASSWORD: password123 # Secret Key
+      ports:
+        - "9000:9000" # API S3 (Port de dades)
+        - "9001:9001" # Consola Web (Port de gestió)
 volumes:
   openldap_data:
   openldap_config:

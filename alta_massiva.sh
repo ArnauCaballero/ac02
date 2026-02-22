@@ -135,7 +135,7 @@ if [ -s "usuaris.ldif" ]; then
     echo "Afegint usuaris i membres a LDAP..."
     echo "Afegint usuaris i membres a LDAP..." >> log.log 2>&1
     ldapadd -x -H "$server_ldap" -D "$admin_dn" -w "admin" -f usuaris.ldif >> log.log 2>&1
-    chown "$nom_usuari:$nom_usuari" "/home/users/$campo3/$nom_usuari"
+    #chown "$nom_usuari:$nom_usuari" "/home/users/$campo3/$nom_usuari"
     #echo "S'ha assignat propietari $nom_usuari al directori /home/users/$campo3/$nom_usuari" >> log.log 2>&1
 else
     echo "No s'han trobat usuaris per afegir."
